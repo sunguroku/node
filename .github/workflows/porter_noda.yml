@@ -31,6 +31,7 @@ jobs:
       run: |2
 
         export $(echo "${{secrets.ENV_NODA}}" | xargs)
+        echo "${{secrets.ENV_NODA}}"
         sudo docker build . --file Dockerfile -t 975032674314.dkr.ecr.us-east-1.amazonaws.com/noda-default:$(git rev-parse --short HEAD)
         sudo docker push 975032674314.dkr.ecr.us-east-1.amazonaws.com/noda-default:$(git rev-parse --short HEAD)
     - name: Deploy on Porter
