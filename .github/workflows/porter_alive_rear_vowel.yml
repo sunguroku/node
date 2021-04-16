@@ -23,13 +23,12 @@ jobs:
     - name: Configure Porter
       id: configure_porter
       run: |2
-        porter config set-host https://dashboard.staging.getporter.dev
+        sudo porter config set-host https://dashboard.staging.getporter.dev
         sudo porter auth login --token ${{secrets.PORTER_TOKEN_9}}
         sudo porter docker configure
     - name: Docker build, push
       id: docker_build_push
       run: |2
-
         export $(echo "${{secrets.ENV_ALIVE_REAR_VOWEL}}" | xargs)
         echo "${{secrets..}}" > ./env_porter
         sudo docker build Dockerfile $(cat ./env_porter | sed 's@^@--build-arg @g' | paste -s -d " " -) --file 975032674314.dkr.ecr.us-east-1.amazonaws.com/alive-rear-vowel-default -t 975032674314.dkr.ecr.us-east-1.amazonaws.com/alive-rear-vowel-default:$(git rev-parse --short HEAD)
