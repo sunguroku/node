@@ -1,0 +1,5 @@
+apps:
+  web: 
+    run: npm start
+  worker:
+    run: npm start
