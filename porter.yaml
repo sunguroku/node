@@ -4,6 +4,6 @@ apps:
     config:
       resources:
         requests:
-          memory: 1000Mi
+          cpu: 120m
   worker:
     run: npm start
