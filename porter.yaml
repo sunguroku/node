@@ -1,5 +1,9 @@
 apps:
   web: 
     run: npm start
+    config:
+      resources:
+        requests:
+          memory: 1000Mi
   worker:
     run: npm start
